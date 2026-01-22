@@ -159,7 +159,7 @@
                 <&macro_wait_time 3000>,
                 <&kp DE_N3 &kp E>,
                 <&macro_wait_time 3000>,
-                <&kp DE_N3 &kp E>;
+                <&kp DE_N3 &kp E>,
                 <&macro_wait_time 500>,
                 <&kp D &kp W>;
         };
