@@ -18,17 +18,7 @@
 // &lt &mt from https://github.com/urob/zmk-config/blob/main/config/base.keymap
 // hold-preferred, balanced, tap-preferred, tap-unless-interrupted
 
-&lt {
-    flavor = "hold-preferred";
-    tapping-term-ms = <TAPPING_TERM>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-};
-
-&mt {
-    flavor = "hold-preferred";
-    tapping-term-ms = <TAPPING_TERM>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-};
+&lt { flavor = "hold-preferred"; };
 
 / {
     behaviors {
@@ -52,69 +42,14 @@
             require-prior-idle-ms = <50>;
         };
 
-        hml: home_row_mod_left {
+        lsm: layer_sticky_mod {
             compatible = "zmk,behavior-hold-tap";
-            label = "HML";
-            bindings = <&kp>, <&kp>;
+            label = "LAYER_STICKY_MOD";
+            bindings = <&mo>, <&sk>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <HRM_TAP_TERM>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            require-prior-idle-ms = <PRIOR_IDLE>;
-            flavor = "balanced";
-            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 39 38 37>;
-            hold-trigger-on-release;
-        };
-
-        hmr: home_row_mod_right {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HMR";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <HRM_TAP_TERM>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            require-prior-idle-ms = <PRIOR_IDLE>;
-            flavor = "balanced";
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 2 3 4 13 14 15 25 26 27 34 35 36>;
-            hold-trigger-on-release;
-        };
-
-        hml_shift: home_row_mod_left_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HMLS";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <HRM_TAP_TERM>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            require-prior-idle-ms = <PRIOR_IDLE>;
-            flavor = "tap-unless-interrupted";
-            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 39 38 37>;
-            hold-while-undecided;
-        };
-
-        hmr_shift: home_row_mod_right_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HMRS";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <HRM_TAP_TERM>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            require-prior-idle-ms = <PRIOR_IDLE>;
-            flavor = "tap-unless-interrupted";
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 2 3 4 13 14 15 25 26 27 34 35 36>;
-            hold-while-undecided;
-        };
-
-        td_dot_comma: td_dot_comma {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_DOT_COMMA";
-            #binding-cells = <0>;
-            bindings = <&kp DE_DOT>, <&kp DE_COMMA>;
-
             tapping-term-ms = <250>;
+            flavor = "tap-unless-interrupted";
         };
     };
 
@@ -186,15 +121,15 @@
             layers = <0 1>;
         };
 
-        arrow_down {
-            bindings = <&kp DOWN>;
-            key-positions = <29 30 31>;
-            layers = <0 1>;
-        };
-
         controller_reset {
             bindings = <&bootloader>;
             key-positions = <0 1 2 3>;
+            layers = <0 1>;
+        };
+
+        del {
+            bindings = <&kp DELETE>;
+            key-positions = <24 26 25>;
             layers = <0 1>;
         };
     };
@@ -209,31 +144,24 @@
             bindings = <&kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E>;
         };
 
-        g_pw_nextpal: g_pw_nextpal {
-            compatible = "zmk,behavior-macro";
-            label = "GAME_PALWORLD_NEXT_PAL";
-            #binding-cells = <0>;
-            wait-ms = <50>;
-            tap-ms = <50>;
-            bindings = <&kp DE_N3 &kp E>;
-        };
-
-        g_pw_necklaced: g_pw_necklaced {
+        g_pw_necklace: g_pw_necklace {
             compatible = "zmk,behavior-macro";
             label = "GAME_PALWORLD_NECKLACE_SPAWN_FIX";
             #binding-cells = <0>;
             wait-ms = <50>;
             tap-ms = <50>;
             bindings =
-                <&g_pw_nextpal>,
+                <&macro_tap>,
+                <&macro_tap_time 100>,
+                <&kp E &kp DE_N3>,
                 <&macro_wait_time 1000>,
-                <&g_pw_nextpal>,
+                <&kp E &kp DE_N3>,
                 <&macro_wait_time 1000>,
-                <&g_pw_nextpal>,
+                <&kp E &kp DE_N3>,
                 <&macro_wait_time 1000>,
-                <&g_pw_nextpal>,
+                <&kp E &kp DE_N3>,
                 <&macro_wait_time 1000>,
-                <&g_pw_nextpal>;
+                <&kp E>;
         };
 
         shifted: macro_shifted_kp {
@@ -261,7 +189,7 @@
                 <&macro_param_1to1 &macro_param_1to2 &ht_as MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
         };
 
-        discord_codesegment: discord_codesegment {
+        dc_code: discord_codesegment {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp DE_GRAVE &kp DE_GRAVE>;
@@ -293,28 +221,19 @@
             //                      | SW19 | SW20 | SW21 |  | SW42 | SW41 | SW40 |
 
             bindings = <
-&kp Q                         &kp W           &kp E        &kp R        &kp T           &kp DE_Z   &kp U             &kp I               &kp O           &kp P
-&mt LCTRL ESCAPE  &hm LGUI A  &hm LEFT_ALT S  &hm LCTRL D  &hm LSHFT F  &kp G           &kp H      &hm LEFT_SHIFT J  &hm LEFT_CONTROL K  &hm LEFT_ALT L  &hm LEFT_GUI DE_O_UMLAUT  &kp DE_U_UMLAUT
-&kp LEFT_SHIFT    &kp DE_Y    &kp X           &kp C        &kp V        &kp B           &kp N      &kp M             &as DE_COMMA        &as DE_DOT      &as DE_MINUS              &lt 4 DE_A_UMLAUT
-                                              &to 6        &kp SPACE    &lt 2 DELETE    &lt 3 TAB  &kp BACKSPACE     &as DE_SZ
+&kp Q              &kp W  &kp E  &kp R      &kp T                  &kp DE_Z           &kp U          &kp I         &kp O       &kp P
+&kp ESC  &kp A     &kp S  &kp D  &kp F      &kp G                  &kp H              &kp J          &kp K         &kp L       &kp DE_O_UMLAUT  &kp DE_U_UMLAUT
+&kp TAB  &kp DE_Y  &kp X  &kp C  &kp V      &kp B                  &kp N              &kp M          &as DE_COMMA  &as DE_DOT  &as DE_MINUS     &lt 4 DE_A_UMLAUT
+                          &to 6  &kp SPACE  &lsm 3 LEFT_CONTROL    &lsm 2 LEFT_SHIFT  &kp BACKSPACE  &as DE_SZ
             >;
         };
 
         NEO-NOTED {
             bindings = <
-&kp DE_Z                                 &kp DE_Y        &kp U            &kp A            &kp Q              &kp P      &kp B          &kp M         &kp L           &kp F
-&mt LEFT_CONTROL ESCAPE  &hm LEFT_GUI C  &hm LEFT_ALT S  &hm LCTRL I      &hm LSHIFT E     &kp O              &kp D      &hm LSHIFT T   &hm LCTRL N   &hm LEFT_ALT R  &hm LEFT_GUI H  &as DE_SZ
-&kp LEFT_SHIFT           &kp V           &kp X           &kp DE_U_UMLAUT  &kp DE_A_UMLAUT  &kp DE_O_UMLAUT    &kp W      &kp G          &as DE_COMMA  &as DE_DOT      &kp K           &lt 4 J
-                                                         &to 6            &kp SPACE        &lt 2 DELETE       &lt 3 TAB  &kp BACKSPACE  &as DE_MINUS
-            >;
-        };
-
-        DESKTOP+NUMBERS {
-            bindings = <
-&kp LG(UP_ARROW)                      &kp LG(LEFT_ARROW)   &kp LG(E)  &kp LG(R)  &kp LG(LS(H))    &kp DE_EURO      &kp DE_N7  &kp DE_N8  &kp DE_N9  &as DE_CARET
-&kp LS(LEFT_GUI)  &none               &kp LG(LS(S))        &kp LG(D)  &kp LG(F)  &kp LG(LS(G))    &kp DE_EQUAL     &kp DE_N4  &kp DE_N5  &kp DE_N6  &kp KP_PLUS   &kp KP_SLASH
-&kp LEFT_GUI      &kp LG(DOWN_ARROW)  &kp LG(RIGHT_ARROW)  &kp LG(C)  &kp LG(V)  &kp LG(LS(B))    &kp KP_ASTERISK  &kp DE_N1  &kp DE_N2  &kp DE_N3  &kp KP_MINUS  &as DE_DOT
-                                                           &none      &none      &none            &td_dot_comma    &kp DE_N0  &kp COMMA
+&kp DE_Z         &kp DE_Y  &kp U            &kp A            &kp Q                  &kp P              &kp B          &kp M         &kp L       &kp F
+&kp ESC   &kp C  &kp S     &kp I            &kp E            &kp O                  &kp D              &kp T          &kp N         &kp R       &kp H  &as DE_SZ
+&kp TAB   &kp V  &kp X     &kp DE_U_UMLAUT  &kp DE_A_UMLAUT  &kp DE_O_UMLAUT        &kp W              &kp G          &as DE_COMMA  &as DE_DOT  &kp K  &lt 4 J
+                           &to 6            &kp SPACE        &lsm 3 LEFT_CONTROL    &lsm 2 LEFT_SHIFT  &kp BACKSPACE  &as DE_MINUS
             >;
         };
 
@@ -322,8 +241,17 @@
             bindings = <
 &kp DE_SECTION                      &kp DE_DOUBLE_QUOTES  &kp DE_AMPERSAND         &kp DE_PERCENT       &kp DE_EURO         &kp DE_EQUAL         &kp DE_QUESTION       &kp DE_COLON              &kp DE_SINGLE_QUOTE  &as DE_CARET
 &kp LEFT_ALT    &kp DE_AT_SIGN      &kp DE_LEFT_BRACE     &kp DE_LEFT_PARENTHESIS  &kp DE_LEFT_BRACKET  &kp DE_LESS_THAN    &kp DE_GREATER_THAN  &kp DE_RIGHT_BRACKET  &kp DE_RIGHT_PARENTHESIS  &kp DE_RIGHT_BRACE   &kp DE_DOLLAR  &kp DE_HASH
-&caps_word      &kp DE_EXCLAMATION  &kp DE_PIPE           &kp KP_SLASH             &kp DE_BACKSLASH     &kp DE_TILDE        &kp KP_ASTERISK      &as DE_MINUS          &discord_codesegment      &kp DE_GRAVE         &kp DE_ACUTE   &kp DE_SEMICOLON
+&caps_word      &kp DE_EXCLAMATION  &kp DE_PIPE           &kp KP_SLASH             &kp DE_BACKSLASH     &kp DE_TILDE        &kp KP_ASTERISK      &as DE_MINUS          &dc_code                  &kp DE_GRAVE         &kp DE_ACUTE   &kp DE_SEMICOLON
                                                           &none                    &none                &none               &none                &none                 &none
+            >;
+        };
+
+        DESKTOP+NUMBERS {
+            bindings = <
+&kp LG(UP_ARROW)                      &kp LG(LEFT_ARROW)   &kp LG(E)  &kp LG(R)  &kp LG(LS(H))    &kp DE_EURO      &kp DE_N7  &kp DE_N8      &kp DE_N9  &kp DE_CARET
+&kp LS(LEFT_GUI)  &kp DE_AT           &kp LG(LS(S))        &kp LG(D)  &kp LG(F)  &kp LG(LS(G))    &kp DE_EQUAL     &kp DE_N4  &kp DE_N5      &kp DE_N6  &kp KP_PLUS   &kp KP_SLASH
+&kp LEFT_GUI      &kp LG(DOWN_ARROW)  &kp LG(RIGHT_ARROW)  &kp LG(C)  &kp LG(V)  &kp LG(LS(B))    &kp KP_ASTERISK  &kp DE_N1  &kp DE_N2      &kp DE_N3  &kp KP_MINUS  &as DE_DOT
+                                                           &none      &none      &none            &kp DE_COMMA     &kp DE_N0  &kp BACKSPACE
             >;
         };
 
@@ -338,10 +266,10 @@
 
         MOUSE {
             bindings = <
-&mo 9                &none      &none      &none      &none    &none           &none           &none         &none            &none
-&kp LCTRL  &mo 8     &mkp RCLK  &mkp MCLK  &mkp LCLK  &none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &kp LEFT_ALT
-&kp LSHFT  &kp LGUI  &none      &none      &none      &none    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &none  &kp LGUI
-                                &none      &none      &none    &none           &none           &none
+&mo 9                &kp LA(LEFT_ARROW)  &kp F5     &kp LA(RIGHT_ARROW)  &none    &none           &none           &none         &none            &none
+&kp LCTRL  &mo 8     &mkp RCLK           &mkp MCLK  &mkp LCLK            &none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &kp LEFT_ALT
+&kp LSHFT  &kp LGUI  &none               &none      &none                &none    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &none  &kp LGUI
+                                         &none      &none                &none    &none           &none           &none
             >;
         };
 
@@ -356,10 +284,10 @@
 
         GAME_2 {
             bindings = <
-&none                    &kp DE_N2  &none      &kp DE_N4  &kp N        &none  &kp LS(TAB)    &kp LS(F2)     &kp LS(DE_CARET)         &none
-&kp DE_DOT    &kp F5     &kp DE_N1  &none      &kp DE_N3  &kp I        &none  &none          &kp LS(LC(M))  &kp LS(LC(DE_U_UMLAUT))  &none  &g_vr_inventory
-&kp LEFT_ALT  &kp DE_N7  &kp B      &kp J      &kp T      &kp DE_N5    &none  &none          &none          &none                    &none  &g_pw_necklaced
-                                    &kp DE_N6  &none      &kp F12      &none  &kp BACKSPACE  &none
+&g_vr_inventory             &kp DE_N2  &none      &kp DE_N4  &kp N        &none  &kp LS(TAB)    &kp LS(F2)     &kp LS(DE_CARET)         &none
+&kp DE_DOT       &kp F5     &kp DE_N1  &none      &kp DE_N3  &kp I        &none  &none          &kp LS(LC(M))  &kp LS(LC(DE_U_UMLAUT))  &none  &none
+&kp LEFT_ALT     &kp DE_N7  &kp B      &kp J      &kp T      &kp DE_N5    &none  &kp F3         &kp F7         &kp F9                   &none  &g_pw_necklace
+                                       &kp DE_N6  &none      &kp F12      &none  &kp BACKSPACE  &none
             >;
         };
 
