@@ -148,7 +148,7 @@
             compatible = "zmk,behavior-macro";
             label = "GAME_PALWORLD_NECKLACE_SPAWN_FIX";
             #binding-cells = <0>;
-            wait-ms = <100>;
+            wait-ms = <150>;
             tap-ms = <70>;
             bindings =
                 <&kp DE_N3 &kp E>,
@@ -160,7 +160,9 @@
                 <&kp DE_N3 &kp E>,
                 <&macro_wait_time 3000>,
                 <&kp DE_N3 &kp E>,
-                <&macro_wait_time 500>,
+                <&macro_wait_time 3000>,
+                <&kp DE_N3 &kp E>,
+                <&macro_wait_time 200>,
                 <&kp D &kp W>;
         };
 
