@@ -139,8 +139,8 @@
             compatible = "zmk,behavior-macro";
             label = "GAME_VRISING_INVENTORY_CLEAR";
             #binding-cells = <0>;
-            wait-ms = <50>;
-            tap-ms = <50>;
+            wait-ms = <100>;
+            tap-ms = <100>;
             bindings = <&kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E>;
         };
 
@@ -154,13 +154,13 @@
                 <&macro_tap>,
                 <&macro_tap_time 100>,
                 <&kp E &kp DE_N3>,
-                <&macro_wait_time 1000>,
+                <&macro_wait_time 2000>,
                 <&kp E &kp DE_N3>,
-                <&macro_wait_time 1000>,
+                <&macro_wait_time 2000>,
                 <&kp E &kp DE_N3>,
-                <&macro_wait_time 1000>,
+                <&macro_wait_time 2000>,
                 <&kp E &kp DE_N3>,
-                <&macro_wait_time 1000>,
+                <&macro_wait_time 2000>,
                 <&kp E>;
         };
 
