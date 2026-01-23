@@ -20,6 +20,11 @@
 
 &lt { flavor = "hold-preferred"; };
 
+&sk {
+    quick-release;
+    lazy;
+};
+
 / {
     behaviors {
         ht_as: autoshift_hold_tap {
