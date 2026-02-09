@@ -121,6 +121,18 @@
             key-positions = <0 1 2 3>;
             layers = <0 1>;
         };
+
+        arrow_up {
+            bindings = <&kp UP_ARROW>;
+            key-positions = <29 30>;
+            layers = <0 1>;
+        };
+
+        arrow_down {
+            bindings = <&kp DOWN_ARROW>;
+            key-positions = <31 32>;
+            layers = <0 1>;
+        };
     };
 
     macros {
@@ -248,10 +260,10 @@
 
         FUNCTIONS+NAVIGATION {
             bindings = <
-&kp LEFT_ALT                    &kp F1  &kp F4  &kp F7  &kp F10    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_BRI_UP  &kp C_BRI_DN     &bt BT_SEL 0
-&none         &kp LC(LEFT_ALT)  &kp F2  &kp F5  &kp F8  &kp F11    &kp LEFT_ARROW     &kp DOWN_ARROW   &kp UP_ARROW  &kp RIGHT_ARROW  &bt BT_SEL 1  &none
-&none         &kp LS(LEFT_GUI)  &kp F3  &kp F6  &kp F9  &kp F12    &none              &to 1            &to 5         &to 6            &bt BT_SEL 2  &none
-                                        &none   &none   &none      &none              &none            &bt BT_CLR
+&none                    &kp F1  &kp F4        &kp F7    &kp F10      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_BRI_UP  &kp C_BRI_DN     &bt BT_SEL 0
+&none  &kp LC(LEFT_ALT)  &kp F2  &kp F5        &kp F8    &kp F11      &kp LEFT_ARROW     &kp DOWN_ARROW   &kp UP_ARROW  &kp RIGHT_ARROW  &bt BT_SEL 1  &none
+&none  &kp LS(LEFT_GUI)  &kp F3  &kp F6        &kp F9    &kp F12      &none              &to 1            &to 5         &to 6            &bt BT_SEL 2  &none
+                                 &kp LEFT_ALT  &kp LGUI  &kp LSHFT    &none              &none            &bt BT_CLR
             >;
         };
 
