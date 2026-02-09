@@ -131,12 +131,6 @@
             key-positions = <0 1 2 3>;
             layers = <0 1>;
         };
-
-        del {
-            bindings = <&kp DELETE>;
-            key-positions = <24 26 25>;
-            layers = <0 1>;
-        };
     };
 
     macros {
@@ -228,19 +222,19 @@
             //                      | SW19 | SW20 | SW21 |  | SW42 | SW41 | SW40 |
 
             bindings = <
-&kp Q                       &kp W  &kp E  &kp R      &kp T                &kp DE_Z   &kp U          &kp I         &kp O       &kp P
-&kp ESC           &kp A     &kp S  &kp D  &kp F      &kp G                &kp H      &kp J          &kp K         &kp L       &kp DE_O_UMLAUT  &kp DE_U_UMLAUT
-&kp LEFT_CONTROL  &kp DE_Y  &kp X  &kp C  &kp V      &kp B                &kp N      &kp M          &as DE_COMMA  &as DE_DOT  &as DE_MINUS     &lt 4 DE_A_UMLAUT
-                                   &to 6  &kp SPACE  &lsm 3 LEFT_SHIFT    &lt 2 TAB  &kp BACKSPACE  &as DE_SZ
+&kp Q                       &kp W  &kp E  &kp R      &kp T           &kp DE_Z   &kp U          &kp I         &kp O       &kp P
+&lt 4 ESCAPE      &kp A     &kp S  &kp D  &kp F      &kp G           &kp H      &kp J          &kp K         &kp L       &kp DE_O_UMLAUT  &kp DE_U_UMLAUT
+&kp LEFT_CONTROL  &kp DE_Y  &kp X  &kp C  &kp V      &kp B           &kp N      &kp M          &as DE_COMMA  &as DE_DOT  &as DE_MINUS     &kp DE_A_UMLAUT
+                                   &to 6  &kp SPACE  &lt 3 DELETE    &lt 2 TAB  &kp BACKSPACE  &as DE_SZ
             >;
         };
 
         NEO-NOTED {
             bindings = <
-&kp DE_Z                 &kp DE_Y  &kp U            &kp A            &kp Q                &kp P      &kp B          &kp M         &kp L       &kp F
-&kp ESC           &kp C  &kp S     &kp I            &kp E            &kp O                &kp D      &kp T          &kp N         &kp R       &kp H  &as DE_SZ
-&kp LEFT_CONTROL  &kp V  &kp X     &kp DE_U_UMLAUT  &kp DE_A_UMLAUT  &kp DE_O_UMLAUT      &kp W      &kp G          &as DE_COMMA  &as DE_DOT  &kp K  &lt 4 J
-                                   &to 6            &kp SPACE        &lsm 3 LEFT_SHIFT    &lt 2 TAB  &kp BACKSPACE  &as DE_MINUS
+&kp DE_Z                 &kp DE_Y  &kp U            &kp A            &kp Q              &kp P      &kp B          &kp M         &kp L       &kp F
+&lt 4 ESCAPE      &kp C  &kp S     &kp I            &kp E            &kp O              &kp D      &kp T          &kp N         &kp R       &kp H  &as DE_SZ
+&kp LEFT_CONTROL  &kp V  &kp X     &kp DE_U_UMLAUT  &kp DE_A_UMLAUT  &kp DE_O_UMLAUT    &kp W      &kp G          &as DE_COMMA  &as DE_DOT  &kp K  &kp J
+                                   &to 6            &kp SPACE        &lt 3 DELETE       &lt 2 TAB  &kp BACKSPACE  &as DE_MINUS
             >;
         };
 
@@ -264,10 +258,10 @@
 
         FUNCTIONS+NAVIGATION {
             bindings = <
-&kp LSHFT                    &kp F1  &kp F4  &kp F7  &kp F10    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_BRI_UP  &kp C_BRI_DN     &bt BT_SEL 0
-&kp LS(LGUI)      &kp LALT   &kp F2  &kp F5  &kp F8  &kp F11    &kp LEFT_ARROW     &kp DOWN_ARROW   &kp UP_ARROW  &kp RIGHT_ARROW  &bt BT_SEL 1  &none
-&kp LC(LEFT_ALT)  &kp LCTRL  &kp F3  &kp F6  &kp F9  &kp F12    &none              &to 1            &to 5         &to 6            &bt BT_SEL 2  &none
-                                     &none   &none   &none      &none              &none            &bt BT_CLR
+&kp LEFT_ALT                    &kp F1  &kp F4  &kp F7  &kp F10    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_BRI_UP  &kp C_BRI_DN     &bt BT_SEL 0
+&none         &kp LC(LEFT_ALT)  &kp F2  &kp F5  &kp F8  &kp F11    &kp LEFT_ARROW     &kp DOWN_ARROW   &kp UP_ARROW  &kp RIGHT_ARROW  &bt BT_SEL 1  &none
+&none         &kp LS(LEFT_GUI)  &kp F3  &kp F6  &kp F9  &kp F12    &none              &to 1            &to 5         &to 6            &bt BT_SEL 2  &none
+                                        &none   &none   &none      &none              &none            &bt BT_CLR
             >;
         };
 
