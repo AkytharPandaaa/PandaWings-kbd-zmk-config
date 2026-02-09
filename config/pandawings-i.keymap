@@ -46,16 +46,6 @@
 
             require-prior-idle-ms = <50>;
         };
-
-        lsm: layer_sticky_mod {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_STICKY_MOD";
-            bindings = <&mo>, <&sk>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            flavor = "tap-unless-interrupted";
-        };
     };
 
     combos {
@@ -222,18 +212,18 @@
             //                      | SW19 | SW20 | SW21 |  | SW42 | SW41 | SW40 |
 
             bindings = <
-&kp Q                       &kp W  &kp E  &kp R      &kp T           &kp DE_Z   &kp U          &kp I         &kp O       &kp P
-&lt 4 ESCAPE      &kp A     &kp S  &kp D  &kp F      &kp G           &kp H      &kp J          &kp K         &kp L       &kp DE_O_UMLAUT  &kp DE_U_UMLAUT
-&kp LEFT_CONTROL  &kp DE_Y  &kp X  &kp C  &kp V      &kp B           &kp N      &kp M          &as DE_COMMA  &as DE_DOT  &as DE_MINUS     &kp DE_A_UMLAUT
+&as Q                       &as W  &as E  &as R      &as T           &as DE_Z   &as U          &as I         &as O       &as P
+&lt 4 ESCAPE      &as A     &as S  &as D  &as F      &as G           &as H      &as J          &as K         &as L       &as DE_O_UMLAUT  &as DE_U_UMLAUT
+&kp LEFT_CONTROL  &as DE_Y  &as X  &as C  &as V      &as B           &as N      &as M          &as DE_COMMA  &as DE_DOT  &as DE_MINUS     &as DE_A_UMLAUT
                                    &to 6  &kp SPACE  &lt 3 DELETE    &lt 2 TAB  &kp BACKSPACE  &as DE_SZ
             >;
         };
 
         NEO-NOTED {
             bindings = <
-&kp DE_Z                 &kp DE_Y  &kp U            &kp A            &kp Q              &kp P      &kp B          &kp M         &kp L       &kp F
-&lt 4 ESCAPE      &kp C  &kp S     &kp I            &kp E            &kp O              &kp D      &kp T          &kp N         &kp R       &kp H  &as DE_SZ
-&kp LEFT_CONTROL  &kp V  &kp X     &kp DE_U_UMLAUT  &kp DE_A_UMLAUT  &kp DE_O_UMLAUT    &kp W      &kp G          &as DE_COMMA  &as DE_DOT  &kp K  &kp J
+&as DE_Z                 &as DE_Y  &as U            &as A            &as Q              &as P      &as B          &as M         &as L       &as F
+&lt 4 ESCAPE      &as C  &as S     &as I            &as E            &as O              &as D      &as T          &as N         &as R       &as H  &as DE_SZ
+&kp LEFT_CONTROL  &as V  &as X     &as DE_U_UMLAUT  &as DE_A_UMLAUT  &as DE_O_UMLAUT    &as W      &as G          &as DE_COMMA  &as DE_DOT  &as K  &as J
                                    &to 6            &kp SPACE        &lt 3 DELETE       &lt 2 TAB  &kp BACKSPACE  &as DE_MINUS
             >;
         };
