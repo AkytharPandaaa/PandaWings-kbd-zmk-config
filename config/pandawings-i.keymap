@@ -141,7 +141,7 @@
             label = "GAME_VRISING_INVENTORY_CLEAR";
             #binding-cells = <0>;
             wait-ms = <100>;
-            tap-ms = <50>;
+            tap-ms = <100>;
             bindings = <&kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E>;
         };
 
