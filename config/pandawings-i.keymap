@@ -142,29 +142,20 @@
             #binding-cells = <0>;
             wait-ms = <100>;
             tap-ms = <100>;
-            bindings = <&kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E>;
+            bindings =
+                <&macro_tap>,
+                <&kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E &kp R &mkp RCLK &kp E>;
         };
 
         g_pw_necklace: g_pw_necklace {
             compatible = "zmk,behavior-macro";
             label = "GAME_PALWORLD_NECKLACE_SPAWN_FIX";
             #binding-cells = <0>;
-            wait-ms = <150>;
-            tap-ms = <70>;
+            wait-ms = <250>;
+            tap-ms = <100>;
             bindings =
-                <&kp DE_N3 &kp E>,
-                <&macro_wait_time 3000>,
-                <&kp DE_N3 &kp E>,
-                <&macro_wait_time 3000>,
-                <&kp DE_N3 &kp E>,
-                <&macro_wait_time 3000>,
-                <&kp DE_N3 &kp E>,
-                <&macro_wait_time 3000>,
-                <&kp DE_N3 &kp E>,
-                <&macro_wait_time 3000>,
-                <&kp DE_N3 &kp E>,
-                <&macro_wait_time 200>,
-                <&kp D &kp W>;
+                <&macro_tap>,
+                <&kp DE_N3 &kp E &kp DE_N3 &kp E &kp DE_N3 &kp E &kp DE_N3 &kp E &kp DE_N3 &kp E &kp DE_N3 &kp E &kp D &kp W>;
         };
 
         shifted: macro_shifted_kp {
