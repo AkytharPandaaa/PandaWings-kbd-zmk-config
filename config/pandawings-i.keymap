@@ -2,9 +2,9 @@
 #include <dt-bindings/zmk/keys.h>
 
 
-/ {  
+/ {
     keymap {
-      compatible = "zmk,keymap";        
+      compatible = "zmk,keymap";
 
       base_layer {
         display-name = "QWERTZ";
