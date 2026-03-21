@@ -1,6 +1,6 @@
 # Required files for ZMK to recognize the shield
 
-if PANDAWINGS-I
+if SHIELD_PANDAWINGS-I
 
 # Name must be less than 16 characters long!
 config ZMK_KEYBOARD_NAME
