@@ -1,0 +1,28 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+
+/ {  
+    keymap {
+      compatible = "zmk,keymap";        
+
+      base_layer {
+        display-name = "QWERTZ";
+        bindings = <
+//           ┌───┬───┬───┬──────┬─────┐               ┌──────┬───┬───┬───┬───┐
+//           │ Q │ W │ E │  R   │  T  │               │  Y   │ U │ I │ O │ P │
+//    ┌──────┼───┼───┼───┼──────┼─────┤               ├──────┼───┼───┼───┼───┼───┐
+//    │ esc  │ A │ S │ D │  F   │  G  │               │  H   │ J │ K │ L │ O │ U │
+//    ├──────┼───┼───┼───┼──────┼─────┤               ├──────┼───┼───┼───┼───┼───┤
+//    │ lctl │ Z │ X │ C │  V   │  B  │               │  N   │ M │ , │ . │ - │ A │
+//    └──────┴───┴───┴───┼──────┼─────┼─────┐   ┌─────┼──────┼───┼───┴───┴───┴───┘
+//                       │ lsft │ spc │ del │   │ tab │ bspc │ S │
+//                       └──────┴─────┴─────┘   └─────┴──────┴───┘
+               &kp Q   &kp W   &kp E   &kp R       &kp T                                  &kp Y           &kp U   &kp I       &kp O     &kp P
+  &kp ESCAPE   &kp A   &kp S   &kp D   &kp F       &kp G                                  &kp H           &kp J   &kp K       &kp L     &kp O       &kp U
+  &kp LCTRL    &kp Z   &kp X   &kp C   &kp V       &kp B                                  &kp N           &kp M   &kp COMMA   &kp DOT   &kp MINUS   &kp A
+                                       &kp LSHFT   &kp SPACE   &kp DELETE       &kp TAB   &kp BACKSPACE   &kp S
+        >;
+      };
+    };
+ };
