@@ -1,4 +1,0 @@
-name: zmk-keyboards-pandawings
-build:
-  settings:
-    board_root: .
