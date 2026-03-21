@@ -1,0 +1,8 @@
+# Required files for ZMK to recognize the shield
+
+# No whitespace after the comma or in your keyboard name!
+# Config name will be reused in Kconfig.defconfig
+
+config SHIELD_PANDAWINGS-I
+    def_bool $(shields_list_contains,pandawings-i)
+ 
